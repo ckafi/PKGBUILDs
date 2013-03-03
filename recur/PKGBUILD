@@ -1,0 +1,40 @@
+# Maintainer: Tobias Frilling <tobias@frilling-online.de>
+pkgname=recur
+pkgver=20130303
+pkgrel=1
+pkgdesc="A to-do list manager that gamifies your recurring tasks."
+arch=('any')
+url="http://github.com/ckafi/recur/"
+license=('MPL')
+depends=('python')
+makedepends=('git' 'python-docutils')
+provides=('recur')
+conflicts=('recur')
+
+_gitroot='git@github.com:ckafi/recur.git'
+_gitname='recur'
+
+build() {
+  cd "$srcdir"
+  msg "Connecting to GIT server...."
+
+  if [[ -d "$_gitname" ]]; then
+    cd "$_gitname" && git pull origin
+    msg "The local files are updated."
+  else
+    git clone "$_gitroot" "$_gitname"
+  fi
+
+  msg "GIT checkout done or server timeout"
+  msg "Starting build..."
+
+  rm -rf "$srcdir/$_gitname-build"
+  git clone "$srcdir/$_gitname" "$srcdir/$_gitname-build"
+}
+
+package() {
+  cd "$srcdir/$_gitname-build"
+  python setup.py install --prefix=/usr --root=$pkgdir --optimize=1
+}
+
+# vim:set ts=2 sw=2 et:
