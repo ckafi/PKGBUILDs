@@ -1,0 +1,18 @@
+# Maintainer: Tobias Frilling <tobias@frilling-online.de>
+pkgname=leiningen
+pkgver=2.1.3
+pkgrel=1
+epoch=1
+pkgdesc="Leiningen is for automating Clojure projects without setting your hair on fire."
+arch=('i686' 'x86_64')
+url="http://github.com/technomancy/leiningen"
+license=("EPL")
+depends=('clojure' 'java-environment')
+optdepends=('rlwrap')
+source=('https://raw.github.com/technomancy/leiningen/stable/bin/lein')
+sha1sums=('fb0b058d147518c5c99d9018b6bc1865efedee69')
+
+package() {
+  cd ${srcdir}
+  install -m 755 -D lein ${pkgdir}/usr/bin/lein
+}
