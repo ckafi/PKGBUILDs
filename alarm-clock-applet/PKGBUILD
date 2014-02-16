@@ -4,12 +4,12 @@
 
 pkgname=alarm-clock-applet
 pkgver=0.3.3
-pkgrel=1
+pkgrel=2
 pkgdesc="A fully-featured alarm clock for GNOME panel"
-arch=('any')
+arch=('x86_64' 'i686')
 url="http://alarm-clock.pseudoberries.com"
 license=('GPL2')
-depends=('glib2>=2.16.0' 'gtk2>=2.12.0' 'gconf>=2.0' 'gnome-icon-theme' 'gstreamer0.10>=0.10.2' 'libnotify>=0.4.1' 'libxml2>=2.0' 'libunique>=1.0')
+depends=('gconf>=2.0' 'gnome-icon-theme' 'gstreamer0.10>=0.10.2' 'libnotify>=0.4.1' 'libunique>=1.0')
 makedepends=('pkgconfig' 'intltool')
 optdepends=('libappindicator: library to allow applications to export menus into the Unity Menu bar')
 install=$pkgname.INSTALL
