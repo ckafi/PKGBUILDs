@@ -14,7 +14,7 @@ makedepends=('pkgconfig' 'intltool')
 optdepends=('libappindicator: library to allow applications to export menus into the Unity Menu bar')
 install=$pkgname.INSTALL
 source=(http://launchpad.net/alarm-clock/trunk/$pkgver/+download/$pkgname-$pkgver.tar.gz)
-md5sums=('c0175660c58b2ac6c9a2d86ae0d2ede3')
+sha1sums=('462c02fe9ae4de44fdd08f8d6dcea0137935c002')
 
 build() {
   cd "$srcdir/$pkgname-$pkgver"
