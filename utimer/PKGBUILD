@@ -1,0 +1,25 @@
+#Contributor: Joseph Kern <timetrap AT gmail DOT com>
+
+pkgname=utimer
+pkgver=0.4
+pkgrel=7
+pkgdesc="A command-line multifunction timer tool."
+url="http://utimer.codealpha.net/utimer/" 
+license=('GPLv3') 
+makedepends=('intltool')
+arch=('x86_64' 'i686')
+source=( http://utimer.codealpha.net/files/utimer-$pkgver.tar.gz ) 
+md5sums=('5fc82bcea449bdc3527a6833a1196641')
+
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  ./configure --prefix='/usr'
+  make
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  make install prefix="$pkgdir/usr/"
+}
+
